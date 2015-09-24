@@ -3,13 +3,8 @@ logs/*.log
 .vagrant
 !.empty
 sql/backup
-<<<<<<< HEAD
-node_modules
-bower_components
-.sass-cache
-=======
 .sass-cache
 node_modules
 bower_components
 
->>>>>>> feature/grunt
+
