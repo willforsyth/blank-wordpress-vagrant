@@ -3,3 +3,6 @@ logs/*.log
 .vagrant
 !.empty
 sql/backup
+node_modules
+bower_components
+.sass-cache
