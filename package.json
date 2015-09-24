@@ -1,0 +1,19 @@
+{
+    "name": "pattern-library-template",
+    "description": "A simple template/boilerplate for a Jekyll-generated pattern library.",
+    "version": "0.4.0",
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-autoprefixer": "^1.0.1",
+        "grunt-contrib-concat": "^0.5.0",
+        "grunt-contrib-requirejs": "^0.4.4",
+        "grunt-contrib-sass": "^0.7.3",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-contrib-copy": "^0.5.0",
+        "grunt-contrib-requirejs": "^0.4.4",
+        "grunt-modernizr": "metaloha/grunt-modernizr#d6657bf302bd9288e25a513197fb0e30c64ce677",
+        "grunt-svgstore": "^0.3.5",
+        "grunt-svg2png": "git://github.com/sambeckham/grunt-svg2png.git#gruntRename",
+        "load-grunt-config": "^0.9.2"
+    }
+}

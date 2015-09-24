@@ -1,0 +1,19 @@
+default:
+ - 'serve'
+
+serve:
+ - 'svgstore'
+ - 'svg2png:dist'
+ - 'recompile'
+ - 'watch'
+
+recompile:
+ - 'svgstore'
+ - 'sass:dev'
+ - 'svg2png:dist'
+ - 'autoprefixer:dev'
+ - 'copy:images'
+ - 'concat'
+ - 'requirejs'
+ - 'modernizr'
+ - 'copy:fonts'
