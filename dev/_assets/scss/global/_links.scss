@@ -1,0 +1,31 @@
+a{
+    color: $color__blue;
+    fill: $color__blue;
+    transition: color $animation__timing;
+
+    &:hover,
+    &:focus{
+        color: $color__blue--light;
+        fill: $color__blue--light;
+        outline: none;
+    }
+
+    &:visited{
+        color: $color__purple;
+        fill: $color__purple;
+    }
+
+    &:active{
+        color: $color__red;
+        fill: $color__red;
+    }
+
+    &:disabled,
+    &[disabled],
+    &.disabled{
+        color: $color__gray;
+        fill: $color__gray;
+        opacity: $ratio--inv;
+        cursor: not-allowed;
+    }
+}

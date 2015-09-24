@@ -1,0 +1,32 @@
+// Main Colors
+// --------------------------------------------------
+$color__black : #333;
+$color__gray : #999;
+$color__white : #ecf0f1;
+
+$color__blue: #3498db;
+$color__blue--light: lighten($color__blue, 20%);
+$color__blue--dark: darken($color__blue, 20%);
+
+$color__red: #c0392b;
+$color__red--light: lighten($color__red, 20%);
+$color__red--dark: darken($color__red, 20%);
+
+$color__green: #27ae60;
+$color__green--light: lighten($color__green, 20%);
+$color__green--dark: darken($color__green, 20%);
+
+$color__purple: #8e44ad;
+$color__purple--light: lighten($color__purple, 20%);
+$color__purple--dark: darken($color__purple, 20%);
+
+// Brand Colors
+// --------------------------------------------------
+$color__twitter : #00acee;
+$color__facebook : #3b5998;
+
+// Scheme
+// --------------------------------------------------
+$color__positive : $color__green;
+$color__negative : $color__red;
+$color__primary : $color__blue;

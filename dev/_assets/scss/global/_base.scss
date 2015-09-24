@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    color: $color__black;
+    background-color: $color__white;
+}
+
+html,
+body{
+    width: 100%;
+}
+
+%wrapper{
+    max-width: map-get($breakpoints, large);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $ratio#{em};
+}
+
+.wrapper{
+    @extend %wrapper;
+}
+
+.hide{
+    display: none;
+}
