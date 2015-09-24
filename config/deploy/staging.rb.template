@@ -1,0 +1,7 @@
+
+server 'staging.drummondcentral.co.uk', user: '', roles: [:web]
+
+set :branch, 'develop'
+
+set :deploy_to, ''
+set :tmp_dir, ''

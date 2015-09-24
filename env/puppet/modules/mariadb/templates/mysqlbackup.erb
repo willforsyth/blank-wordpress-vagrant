@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function log {
+    echo "[`date +'%Y-%m-%d %H:%M:%S.%N'`] $1"
+}
+
+PASSWORD="<%= @password %>"
+BACKUP_DIR=/vagrant/sql/backup
+EXCLUDED_DATABASES=(information_schema mysql performance_schema)
+
+for DATABASE in `/usr/bin/mysql -u root -p"$PASSWORD" -e "SHOW DATABASES;" | tail -n +2 | cut -d ' ' -f 1`; do
+
+    for EXCLUDED in ${EXCLUDED_DATABASES[@]}; do
+        if [ "$DATABASE" == "$EXCLUDED" ]; then
+            log "Excluding backup of '$DATABASE'"
+            continue 2
+        fi;
+    done
+
+    TARGET="$BACKUP_DIR"
+
+    if [ ! -d "$TARGET" ]; then
+        mkdir -p "$TARGET"
+    fi;
+
+    NOW=`date +"%Y-%m-%d-T%H%M"`
+
+    log "Starting backup of '$DATABASE'"
+
+    /usr/bin/mysqldump -u root -p"$PASSWORD" --lock-tables=false $DATABASE | gzip > "$TARGET/$DATABASE-$NOW.sql.gz"
+
+    log "Completed backup of '$DATABASE'"
+
+done

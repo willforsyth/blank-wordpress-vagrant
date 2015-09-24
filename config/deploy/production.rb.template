@@ -1,0 +1,7 @@
+
+server '', user: '', roles: [:web]
+
+set :branch, 'master'
+
+set :deploy_to, ''
+set :tmp_dir, ''

@@ -1,0 +1,66 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          php-fastcgi
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
+### END INIT INFO
+
+USER=vagrant
+HOST=127.0.0.1
+PORT=9000
+WORKERS=6
+FCGI=/usr/bin/spawn-fcgi
+PHPCGI=/usr/bin/php5-cgi
+
+function __start() {
+  sudo -u $USER $FCGI -a $HOST -p $PORT -C $WORKERS -u $USER -f $PHPCGI > /dev/null
+  echo $?
+}
+
+function __stop() {
+  ps xeua | grep -v grep | grep "$PHPCGI" | grep "USER=$USER" | awk '{ print $2; }' | xargs kill -9
+  echo $?
+}
+
+function __restart() {
+  if [ "$(__status)" -eq 0 ]; then
+    __stop > /dev/null
+    sleep 2
+  fi;
+  __start
+}
+
+function __status() {
+  ps xeua | grep -v grep | grep "$PHPCGI" | grep -q "USER=$USER"
+  echo $?
+}
+
+function __self() {
+  echo "$(readlink -f "$0")"
+}
+
+RETVAL=0
+case "$1" in
+    start)
+      RETVAL=$(__start)
+  ;;
+    stop)
+      RETVAL=$(__stop)
+  ;;
+    restart)
+      RETVAL=$(__restart)
+  ;;
+    status)
+      RETVAL=$(__status)
+  ;;
+    *)
+      echo "Usage: $(__self) {start|stop|restart|status}"
+      exit 1
+  ;;
+esac
+exit $RETVAL

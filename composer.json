@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "phpmd/phpmd": "^2.0",
+        "fabpot/php-cs-fixer": "^1.0",
+        "phing/phing": "^2.0",
+        "phpunit/phpunit": "^4.0"
+    }
+}
